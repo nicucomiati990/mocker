@@ -1,0 +1,69 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 30px;
+
+
+  background: #C6FFDD;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom right, #f7797d, #FBD786, #C6FFDD);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom right, #f7797d, #FBD786, #C6FFDD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100vh;
+
+  h1 {
+    color: #dd3c52;
+  }
+
+  .mock-input {
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: none;
+    border: 2px solid #aaa;
+    border-right: none;
+    font-size: 20px;
+    color: #9c4e51;
+    transition: all .3s;
+    &:focus {
+      outline: none;
+      border: 2px solid #659999;
+      border-right: none;
+    }
+  }
+  
+  .mocked-text {
+    font-size: 20px;
+    font-weight: normal;
+  }
+
+  .mock-button,
+  .reset-mock {
+    border-left: none;
+    padding: 10px;
+    font-size: 20px;
+    border: 2px solid #aaa;
+    background: #659999;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top left, #f4791f, #99eecd);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top left, #f4791f, #99eecd); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    outline: none;
+    transition: all .3s;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+  
+  .mock-button {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .reset-mock {
+    border-radius: 10px;
+    padding: 5px 20px;
+  }
+
+
+}
+
