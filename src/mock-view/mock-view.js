@@ -1,26 +1,30 @@
 import React, { useState } from 'react';
 import styles from './mock-view.module.scss';
+import { mockText } from '../utils/mock-text';
+import Chat from '../chat/chat';
 
 const MockView = (props) => {
-	const [ text, setText ] = useState('');
-	const [ mockedText, setMockedText ] = useState('');
+	const [text, setText] = useState('aaaaaaaaaaaaaa');
+	const [mockedText, setMockedText] = useState('aaaaaaaaaaaaaa');
 
 	const mock = () => {
-		const letters = text.split('');
-		let result = '';
-		for (const letter of letters) {
-			if (Math.random() < 0.5) {
-				result += letter.toUpperCase();
-			} else {
-				result += letter;
-			}
-		}
-		setMockedText(result);
+		setMockedText(mockText(text));
 	};
 
+	const mockButtonText = mockedText.length ? "mOcK AgAiN" : "mOcK";
+
+	const resetMockButton = mockedText.length
+		? <button
+			className={styles.resetMock}
+			onClick={() => {
+				setMockedText('');
+				setText('');
+			}}>Reset</button>
+		: null;
+
 	return (
-        <>
-			<h1> MoCkEr</h1>
+		<>
+			<h1 className={styles.header}>MoCkEr</h1>
 			<div>
 				<input
 					value={text}
@@ -29,26 +33,19 @@ const MockView = (props) => {
 						setText(ev.target.value);
 						setMockedText('');
 					}}
-					className="mock-input"
+					className={styles.mockInput}
 					placeholder="Your text goes here"
 				/>
-				<button className="mock-button" onClick={mock}>
-					mOcK
+				<button className={styles.mockButton} onClick={mock}>
+					{mockButtonText}
 				</button>
 			</div>
-			<h2 className="mocked-text"> {mockedText} </h2>
-			{mockedText.length ? (
-				<button
-					className="reset-mock"
-					onClick={() => {
-						setMockedText('');
-						setText('');
-					}}
-				>
-					Reset
-				</button>
-            ) : null}
-            </>
+			{resetMockButton}
+			<Chat
+				text={text}
+				mockedText={mockedText}
+			/>
+		</>
 	);
 };
 

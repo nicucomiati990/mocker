@@ -1,0 +1,46 @@
+.chat-panel {
+    max-width: 500px;
+    min-width: 200px;
+    height: fit-content;
+    background: white;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .chat {
+        display: flex;
+        flex-direction: row;
+
+        .user-icon {
+            margin-right: 10px;
+        }
+
+
+        .text-chat {
+            background-color: rgb(53, 124, 255);
+        }
+
+    }
+
+    .text-chat,
+    .mocked-text-chat {
+        padding: 10px;
+        border-radius: 15px;
+        max-width: 60%;
+        overflow: hidden;
+        display: flex;
+        flex-wrap: wrap;
+        height: fit-content;
+        color: white;
+        word-break: break-word;
+    }
+
+    .mocked-text-chat {
+        background-color: rgb(255, 53, 80);
+        align-self: flex-end;
+        margin-top: 20px;
+    }
+
+}
