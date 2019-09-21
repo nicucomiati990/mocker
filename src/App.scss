@@ -1,19 +1,58 @@
 .App {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 30px;
 
-	background: #c6ffdd; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to bottom right, #f7797d, #fbd786, #c6ffdd); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(
-		to bottom right,
-		#f7797d,
-		#fbd786,
-		#c6ffdd
-	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	height: 100vh;
+    height: 100vh;
+    background: linear-gradient(135deg, #f7797d, #fbd786, #c6ffdd);
+    background-size: 600% 600%;
 
-	
+    -webkit-animation: BackgroundGradient 20s ease infinite;
+    animation: BackgroundGradient 20s ease infinite;
+}
+
+@-webkit-keyframes BackgroundGradient {
+    0% {
+        background-position: 0% 50%
+    }
+
+    40% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    80% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes BackgroundGradient {
+    0% {
+        background-position: 0% 50%
+    }
+
+    40% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    80% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
 }

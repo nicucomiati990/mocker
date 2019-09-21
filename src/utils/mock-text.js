@@ -1,12 +1,11 @@
 export const mockText = (text) => {
     const letters = text.toLowerCase().split('');
-    let result = '';
-    for (const letter of letters) {
-        if (Math.random() < 0.5) {
-            result += letter.toUpperCase();
-        } else {
-            result += letter;
-        }
-    }
+    let result = letters
+        .reduce((acc, letter) =>
+            (Math.random() < 0.5)
+                ? acc + letter.toUpperCase()
+                : acc + letter
+            , '');
+
     return result;
 }

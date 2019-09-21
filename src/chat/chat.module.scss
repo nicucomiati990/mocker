@@ -1,4 +1,5 @@
-.chat-panel {
+.chat-panel,
+.hidden-panel {
     max-width: 500px;
     min-width: 200px;
     height: fit-content;
@@ -8,6 +9,7 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
+    transition: all .1s ease-in;
 
     .chat {
         display: flex;
@@ -17,11 +19,9 @@
             margin-right: 10px;
         }
 
-
         .text-chat {
             background-color: rgb(53, 124, 255);
         }
-
     }
 
     .text-chat,
@@ -42,5 +42,12 @@
         align-self: flex-end;
         margin-top: 20px;
     }
+}
 
+.chat-panel {
+    opacity: 1;
+}
+
+.hidden-panel {
+    opacity: 0;
 }

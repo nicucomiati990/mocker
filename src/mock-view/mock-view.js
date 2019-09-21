@@ -3,35 +3,42 @@ import styles from './mock-view.module.scss';
 import { mockText } from '../utils/mock-text';
 import Chat from '../chat/chat';
 
-const MockView = (props) => {
-	const [text, setText] = useState('aaaaaaaaaaaaaa');
-	const [mockedText, setMockedText] = useState('aaaaaaaaaaaaaa');
+const MockView = () => {
+	const [text, setText] = useState('');
+	const [mockedText, setMockedText] = useState('');
+	const [isMockPanelVisible, setMockPanelVisible] = useState(false);
 
 	const mock = () => {
 		setMockedText(mockText(text));
+		setMockPanelVisible(true);
 	};
 
 	const mockButtonText = mockedText.length ? "mOcK AgAiN" : "mOcK";
 
-	const resetMockButton = mockedText.length
+	const resetMockButton = isMockPanelVisible
 		? <button
 			className={styles.resetMock}
 			onClick={() => {
-				setMockedText('');
-				setText('');
+				setMockPanelVisible(false);
+				setTimeout(() => {
+					setText('');
+					setMockedText('');
+				}, 100);
 			}}>Reset</button>
 		: null;
 
 	return (
 		<>
 			<h1 className={styles.header}>MoCkEr</h1>
-			<div>
-				<input
+			<div className={styles.subheader}>Mock your imaginary friends</div>
+			<div className={styles.mockFields}>
+				<textarea
+					rows={3}
 					value={text}
 					maxLength={30}
 					onChange={(ev) => {
 						setText(ev.target.value);
-						setMockedText('');
+						setMockPanelVisible(false);
 					}}
 					className={styles.mockInput}
 					placeholder="Your text goes here"
@@ -42,6 +49,7 @@ const MockView = (props) => {
 			</div>
 			{resetMockButton}
 			<Chat
+				isVisible={isMockPanelVisible}
 				text={text}
 				mockedText={mockedText}
 			/>
