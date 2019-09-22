@@ -81,4 +81,17 @@
     align-items: center;
     flex-direction: column;
     margin-bottom: 20px;
+
+    a {
+        color: #dd3c52;
+
+        &:visited {
+            color: #dd3c52;
+
+        }
+
+        &:hover {
+            opacity: .8;
+        }
+    }
 }

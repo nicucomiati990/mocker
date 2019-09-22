@@ -38,7 +38,12 @@ const MockView = () => {
 			<div className={styles.subheader}>Mock your imaginary friends</div>
 			<div className={styles.footer}>
 				Made by Nicu Comiati
-				<code>https://github.com/nicucomiati990/mocker</code>
+				<a
+					rel="noopener noreferrer"
+					target="_blank"
+					href="https://github.com/nicucomiati990/mocker">
+					See on GitHub
+					</a>
 			</div>
 			<div className={styles.mockFields}>
 				<textarea
