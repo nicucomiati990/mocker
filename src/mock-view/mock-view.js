@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styles from './mock-view.module.scss';
 import { mockText } from '../utils/mock-text';
 import Chat from '../chat/chat';
+import toastr from 'toastr';
+import 'toastr/build/toastr.min.css';
 
 const MockView = () => {
 	const [text, setText] = useState('');
@@ -9,8 +11,13 @@ const MockView = () => {
 	const [isMockPanelVisible, setMockPanelVisible] = useState(false);
 
 	const mock = () => {
-		setMockedText(mockText(text));
-		setMockPanelVisible(true);
+		if (text) {
+			setMockedText(mockText(text));
+			setMockPanelVisible(true);
+
+		} else {
+			toastr["error"]("PlEasE pRoViDe tExT tO mOcK", "ErRoR");
+		}
 	};
 
 	const mockButtonText = mockedText.length ? "mOcK AgAiN" : "mOcK";
@@ -20,10 +27,8 @@ const MockView = () => {
 			className={styles.resetMock}
 			onClick={() => {
 				setMockPanelVisible(false);
-				setTimeout(() => {
-					setText('');
-					setMockedText('');
-				}, 100);
+				setText('');
+				setMockedText('');
 			}}>Reset</button>
 		: null;
 
@@ -31,6 +36,10 @@ const MockView = () => {
 		<>
 			<h1 className={styles.header}>MoCkEr</h1>
 			<div className={styles.subheader}>Mock your imaginary friends</div>
+			<div className={styles.footer}>
+				Made by Nicu Comiati
+				<code>https://github.com/nicucomiati990/mocker</code>
+			</div>
 			<div className={styles.mockFields}>
 				<textarea
 					rows={3}

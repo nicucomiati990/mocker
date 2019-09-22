@@ -10,9 +10,10 @@ const UserIcon = () => <img
 />
 
 const Chat = ({ text, mockedText, isVisible }) => {
+    if (!isVisible) return null;
 
     return (
-        <div className={isVisible ? styles.chatPanel : styles.hiddenPanel}>
+        <div className={styles.chatPanel}>
             <div className={styles.chat}>
                 <UserIcon />
                 <div className={styles.textChat}>
