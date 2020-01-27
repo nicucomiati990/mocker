@@ -1,8 +1,19 @@
+@import "../styles/scrollbar.scss";
+
+.mock-view {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+}
+
 .header {
     color: #dd3c52;
     margin: 0;
     user-select: none;
     cursor: normal;
+    text-align: center;
 }
 
 .subheader {
@@ -13,8 +24,10 @@
 
 .mock-fields {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
+    max-width: 500px;
+    min-width: 200px;
 }
 
 .mock-input {
@@ -23,18 +36,20 @@
     box-shadow: none;
     border: none;
     font-size: 20px;
-    color: #9c4e51;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.1);
     transition: all .2s;
     resize: none;
     font-family: 'Manjari', sans-serif;
+    display: flex;
+
+    @extend .cool-scrollbar;
 
     &:focus {
         outline: none;
         -webkit-box-shadow: inset 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: inset 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
         box-shadow: inset 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
-        // border: 2px solid #659999;
-        border-right: none;
     }
 }
 
@@ -57,6 +72,7 @@
     background: linear-gradient(180deg, rgba(249, 72, 96, 1) 34%, rgba(255, 59, 0, 1) 100%);
     outline: none;
     transition: all .3s;
+    margin-top: 10px;
     cursor: pointer;
 
     &:hover {
@@ -64,14 +80,8 @@
     }
 }
 
-.mock-button {
-    margin-left: 10px;
-}
-
 .reset-mock {
-    margin-left: 10px;
     padding: 10px 30px;
-    margin-top: 10px;
 }
 
 .footer {

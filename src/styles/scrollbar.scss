@@ -1,0 +1,17 @@
+.cool-scrollbar {
+    &::-webkit-scrollbar-track {
+        border-radius: 4px;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar {
+        width: 12px;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 20px;
+        background-color: rgba(85, 85, 85, 1);
+        padding: 10px 0;
+    }
+}

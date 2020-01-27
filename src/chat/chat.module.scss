@@ -1,15 +1,19 @@
+@import "../styles/scrollbar.scss";
+
 .chat-panel,
 .hidden-panel {
     max-width: 500px;
     min-width: 200px;
     height: fit-content;
     background: white;
-    border-radius: 20px;
+    border-radius: 10px;
     margin: 10px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     transition: all .1s ease-in;
+    overflow: auto;
+    font-size: 24px;
 
     .chat {
         display: flex;
@@ -29,7 +33,6 @@
         padding: 10px;
         border-radius: 15px;
         max-width: 60%;
-        overflow: hidden;
         display: flex;
         flex-wrap: wrap;
         height: fit-content;
@@ -42,6 +45,8 @@
         align-self: flex-end;
         margin-top: 20px;
     }
+
+    @extend .cool-scrollbar;
 }
 
 .chat-panel {
